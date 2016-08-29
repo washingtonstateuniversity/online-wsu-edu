@@ -1,38 +1,41 @@
-/* global Backbone, jQuery, _ */
-var wsuGCHome = wsuGCHome || {};
+// "I'm" button for homepage
 
-(function (window, Backbone, $, _, wsuGCHome) {
-	'use strict';
 
-	wsuGCHome.appView = Backbone.View.extend({
-		el: 'main',
+(function($){
 
-		// Setup the events used in the overall application view.
-		events: {
-			'click .column': 'togglePanel'
-		},
+    $(document).ready(function() {
 
-		togglePanel: function(evt) {
-			var $target = $(evt.target);
+        $('#accordion').accordion({
+     		header: "h5", active: false, collapsible: true, heightStyle: "content"
+    	});
 
-			if ( $target.is('a') ) {
-				return;
-			}
 
-			if ( ! $target.is('.column') ) {
-				$target = $target.parents('.column' );
-			}
+    	$("#hide").click(function(){
+        	$(".hideme").hide();
+    	});
 
-			if ( $target.hasClass('active-panel') ) {
-				$target.removeClass('active-panel');
-			} else {
-				$target.addClass('active-panel');
-			}
+    	$("#show").click(function(){
+        	$(".hideme").show();
+    	});
 
-		}
-	});
 
-	$(document).ready(function() {
-		window.wsuGCHome.app = new wsuGCHome.appView();
-	});
-})(window, Backbone, jQuery, _, wsuGCHome);
+	    $(".csuglobal-inside-0").hide();
+        $(".csuglobal-inside-1").hide();
+        $(".csuglobal-inside-2").hide();
+
+        $(".csuglobal-0").click(function(){
+    		$(".csuglobal-inside-0").toggle();
+		});
+
+        $(".csuglobal-1").click(function(){
+    		$(".csuglobal-inside-1").toggle();
+		});
+
+        $(".csuglobal-2").click(function(){
+    		$(".csuglobal-inside-2").toggle();
+		});
+
+
+   });
+
+}(jQuery));
