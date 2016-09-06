@@ -12,10 +12,11 @@ class WSU_GC_Theme {
 
 	/**
 	 *
-	 * @param string $name Name of the IP site being checked.
+	 * @param string $name Name of the site being checked.
 	 *
 	 * @return bool
 	 */
+
 	public function is_gc_site( $name ) {
 		$site = get_blog_details();
 
@@ -38,6 +39,8 @@ class WSU_GC_Theme {
 	public function enqueue_scripts() {
 
 		wp_enqueue_script( 'gc-home_js', get_stylesheet_directory_uri() . '/js/gc-home.js', array( 'jquery' ), spine_get_script_version(), true );
+
+		wp_enqueue_script( 'mixitup', '//cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js', array(), true );
 
 	}
 
