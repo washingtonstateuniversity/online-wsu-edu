@@ -50,7 +50,9 @@
  *            http://creativecommons.org/licenses/by-nc/3.0/
  */
 
-  var $filterSelect = $('#FilterSelect'),
+
+
+ var $filterSelect = $('#FilterSelect'),
       $sortSelect = $('#SortSelect'),
       $container = $('#Container');
 
@@ -63,6 +65,7 @@
   $sortSelect.on('change', function(){
     $container.mixItUp('sort', this.value);
   });
+
 
 // mixitup search via codepen http://codepen.io/anon/pen/FwkxC
 
@@ -83,6 +86,7 @@ $(function() {
   })();
 
   $("#input").keyup(function(){
+
     // Delay function invoked to make sure user stopped typing
     delay(function(){
       inputText = $("#input").val().toLowerCase();
@@ -91,6 +95,9 @@ $(function() {
       if ((inputText.length) > 0) {
         $( '.mix').each(function() {
           $this = $("this");
+    	 // Reset the Department on search change
+            $('.views-exposed-form select#FilterSelect').val('all');
+
 
            // add item to be filtered out if input text matches items inside the title
            if($(this).children('.title').text().toLowerCase().match(inputText)) {
@@ -107,6 +114,7 @@ $(function() {
       else {
         // resets the filter to show all item if input is empty
         $(".container").mixItUp('filter', 'all');
+
       }
     }, 200 );
   });
@@ -114,5 +122,36 @@ $(function() {
 
 
    });
+
+   // homepage nav
+
+        $("nav").accessibleMegaMenu({
+            /* prefix for generated unique id attributes, which are required
+               to indicate aria-owns, aria-controls and aria-labelledby */
+            uuidPrefix: "accessible-megamenu",
+
+            /* css class used to define the megamenu styling */
+            menuClass: "nav-menu",
+
+            /* css class for a top-level navigation item in the megamenu */
+            topNavItemClass: "nav-item",
+
+            /* css class for a megamenu panel */
+            panelClass: "sub-nav",
+
+            /* css class for a group of items within a megamenu panel */
+            panelGroupClass: "sub-nav-group",
+
+            /* css class for the hover state */
+            hoverClass: "hover",
+
+            /* css class for the focus state */
+            focusClass: "focus",
+
+            /* css class for the open state */
+            openClass: "open"
+        });
+
+
 
 }(jQuery));

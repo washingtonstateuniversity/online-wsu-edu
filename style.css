@@ -8,10 +8,128 @@
  Version:        0.0.1
 */
 
+/* --- homepage nav links --- */
+#dawgdrops a {
+	color: #4f868e;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+#dawgdrops a:hover {
+	color: #981e32;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+/* dropdown from adobe via http://terrillthompson.com/tests/menus/accessible-mega-menu/test.html */
+/* mega menu list */
+#dawgdrops .nav-menu {
+	display: block;
+	position: relative;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 15;
+}
+
+/* a top level navigation item in the mega menu */
+#dawgdrops .nav-item {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+/* first descendant link within a top level navigation item */
+#dawgdrops .nav-item > a {
+	position: relative;
+	display: inline-block;
+	padding: .5em 1em;
+	margin: 0 0 -1px;
+	border: 1px solid transparent;
+}
+
+/* focus/open states of first descendant link within a top level
+           navigation item */
+#dawgdrops .nav-item > a:focus,
+        .nav-item > a.open {
+	border: none;
+}
+
+/* open state of first descendant link within a top level
+           navigation item */
+#dawgdrops .nav-item > a.open {
+	background-color: #fff;
+	border-bottom: none;
+	z-index: 1;
+}
+
+/* sub-navigation panel */
+#dawgdrops .sub-nav {
+	position: absolute;
+	display: none;
+	top: 2.6em;
+	margin-top: -1px;
+	padding: .5em 1em;
+	border: none;
+	background-color: #fff;
+}
+
+/* sub-navigation panel open state */
+#dawgdrops .sub-nav.open {
+	display: block;
+}
+
+/* list of items within sub-navigation panel */
+#dawgdrops .sub-nav ul {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+
+/* list item within sub-navigation panel */
+#dawgdrops .sub-nav li {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	line-height: 2em;
+}
+
+/* removing homepage dropdown when hamburger appears */
+@media screen and (max-width: 990px) {
+	#dawgdrops {
+		display: none;
+	}
+}
+
+
+/* no js - homepage dropdown goes away, only top level remains */
+
+.no-js #dawgdrops ul li ul {
+	display: none;
+}
+
+.no-js #dawgdrops ul li {
+	display: inline-block;
+	padding: 10px;
+}
+
+
+
 /* mixitup */
 
 #Container .mix{
 	display: none;
+}
+
+.no-js #Container .mix {
+	display: block;
+}
+
+.no-js .views-exposed-form {
+	display:none;
 }
 
 *{
@@ -855,126 +973,4 @@ display: -webkit-box;
 .size-small .wsuwp-person-container:nth-last-child(2) {
 	border-bottom: none;
 }
-
-
-/* =========================
-  	People in a list: AOI Directory - List
-========================== */
-
-
-.page-id-60 .wsuwp-people-wrapper {
-	width:100%;
-	border-bottom: none;
-	display: -webkit-box;
-  	display: -ms-flexbox;
-  	display: flex;
-  	-webkit-box-orient: horizontal;
-  	-webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-   -ms-flex-wrap: wrap;
-       flex-wrap: wrap;
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap:wrap;
-}
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container {
-	box-sizing: border-box;
-	width:100%;
-	border-bottom: none;
-	padding:1.2em 0;
-display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  	flex-wrap: wrap;
-  	flex-direction:row;
-  	-webkit-flex-direction:row;
-  	-ms-flex-line-pack: start;
-  	    align-content: flex-start;
- }
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container:last-child {
-	border-bottom:none;
-}
-
-/* .page-id-60 .wsuwp-people-wrapper .wsuwp-person-container:nth-child(even) {
-	justify-content: space-around;
-	padding-left:1em;
-}
-
-.page-id-60 .size-small .wsuwp-people-wrapper .wsuwp-person-container:nth-child(even) {
-	padding-left: 0;
-}
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container:nth-child(odd) {
-   -webkit-box-flex: 1 1 calc(100% - 50px);
-	-webkit-flex: 1 1 calc(100% - 50px);
-    -ms-flex: 1 1 calc(100% - 50px);
-    flex: 1 1 calc(100% - 50px);
-  justify-content: space-around;
-  -webkit-justify-content: space-around;
-  margin-right:2px;
-  padding-right:1em;
-} */
-
-.page-id-60 .wsuwp-person-photo, .wsuwp-person-info-container {
-	box-sizing: border-box;
-	vertical-align: text-top;
-    color: #464e54;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    padding-bottom: 1.2rem;
-    font-weight: 300;
-}
-
-.page-id-60 .wsuwp-person-photo {
-	 -webkit-box-flex: 1 33%;
-      -ms-flex: 1 33%;
-          flex: 1 33%;
-}
-
-.page-id-60 .wsuwp-person-info-container {
-	 -webkit-box-flex: 1 66%;
-      -ms-flex: 1 66%;
-          flex: 1 66%;
-}
-
-.page-id-60.wsuwp-person-profile-container {
-	 -webkit-box-flex: 1 100%;
-      -ms-flex: 1 100%;
-          flex: 1 100%;
-}
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container .wsuwp-person-info-container {
-	padding-left:1em;
-	padding-right:1em;
-	word-wrap: break-word;
-}
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container.person-no-photo .wsuwp-person-info-container {
-	padding-left: 0;
-}
-
-.page-id-60 .wsuwp-people-wrapper .wsuwp-person-container .wsuwp-person-info-container .wsuwp-person-name {
-	font-weight:600;
-	padding-bottom:.4em;
-}
-
-.page-id-60 .wsuwp-person-office {
-	text-transform: uppercase;
-}
-
-/* .page-id-60 .wsuwp-person-container:nth-last-child(2) {
-    border-bottom: none;
-}
-
-.page-id-60 .size-small .wsuwp-person-container:nth-last-child(2) {
-	border-bottom: none;
-} */
 /*# sourceMappingURL=style.css.map */

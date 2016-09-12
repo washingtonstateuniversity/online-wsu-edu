@@ -6,6 +6,7 @@ class WSU_GC_Theme {
 	 */
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_page_design') );
 		add_filter( 'wsuwp_people_item_html', array( $this, 'people_html' ), 10, 2 );
 		add_filter( 'wsuwp_people_sort_items', array( $this, 'people_sort' ), 10, 1 );
 	}
@@ -40,10 +41,18 @@ class WSU_GC_Theme {
 
 		wp_enqueue_script( 'gc-home_js', get_stylesheet_directory_uri() . '/js/gc-home.js', array( 'jquery' ), spine_get_script_version(), true );
 
-		wp_enqueue_script( 'mixitup', '//cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js', array(), true );
-
+		wp_enqueue_script( 'mix-it-up_js', get_stylesheet_directory_uri() . '/js/mix-it-up-v2-1-1.js', array( 'jquery' ), true );
 	}
 
+	function front_page_design() {
+
+		if (is_front_page() || is_home() ) {
+
+		wp_enqueue_script( 'adobe-menu_js', get_stylesheet_directory_uri() . '/js/adobe-menu.js', array( 'jquery' ),  true );
+
+		}
+
+	}
 
 
 	/**
